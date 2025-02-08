@@ -1,0 +1,47 @@
+{
+    "name": "git-exclude-context-menu",
+    "displayName": "Z0Z_ Extensions for Visual Studio Code",
+    "description": "Add files to .git/info/exclude from context menu - a cleaner alternative to .gitignore for personal ignores",
+    "version": "0.0.1",
+    "publisher": "hunterhogan",
+    "author": {
+        "name": "Hunter Hogan",
+        "email": "HunterHogan@pm.me"
+    },
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Other",
+        "SCM Providers"
+    ],
+    "keywords": [
+        "git",
+        "exclude",
+        "gitignore",
+        "context menu",
+        "source control"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hunterhogan/Z0Z_VScode.git"
+    },
+    "bugs": {
+        "url": "https://github.com/hunterhogan/Z0Z_VScode/issues"
+    },
+    "homepage": "https://github.com/hunterhogan/Z0Z_VScode",
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [{
+            "command": "git-exclude.addToExclude",
+            "title": "Add to .git/info/exclude"
+        }],
+        "menus": {
+            "scm/resourceState/context": [{
+                "command": "git-exclude.addToExclude",
+                "when": "scmProvider == git",
+                "group": "1_modification@4"
+            }]
+        }
+    }
+}
