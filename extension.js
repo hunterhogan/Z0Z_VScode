@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 function activate(context) {
-    let disposable = vscode.commands.registerCommand('git-exclude.addToExclude', async (uri) => {
+    let disposable = vscode.commands.registerCommand('Z0Z_-extensions-for-visual-studio-code.addToExclude', async (uri) => {
         if (!uri?.resourceUri) {
             return;
         }
@@ -28,7 +28,33 @@ function activate(context) {
         }
     });
 
+    let toggleProblemsVisibility = vscode.commands.registerCommand('Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility', async () => {
+        const config = vscode.workspace.getConfiguration('problems');
+        const currentVisibility = config.get('visibility');
+        await config.update('visibility', !currentVisibility, true);
+    });
+
+    let hoverProvider = vscode.languages.registerHoverProvider('*', {
+        provideHover(document, position, token) {
+            const diagnostic = vscode.languages.getDiagnostics(document.uri)
+                .find(d => d.range.contains(position));
+
+            if (diagnostic) {
+                const toggleCommand = {
+                    command: 'Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility',
+                    title: 'Toggle Problems Visibility'
+                };
+                return new vscode.Hover([
+                    diagnostic.message,
+                    new vscode.MarkdownString(`[Toggle Problems Visibility](command:Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility)`)
+                ]);
+            }
+        }
+    });
+
     context.subscriptions.push(disposable);
+    context.subscriptions.push(toggleProblemsVisibility);
+    context.subscriptions.push(hoverProvider);
 }
 
 function deactivate() {}

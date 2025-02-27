@@ -1,0 +1,11 @@
+[
+    {
+        "key": "ctrl+shift+m",
+        "command": "Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "-workbench.panel.markers.view.focus"
+    }
+]

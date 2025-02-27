@@ -1,8 +1,8 @@
 {
-    "name": "git-exclude-context-menu",
+    "name": "Z0Z_-extensions-for-visual-studio-code",
     "displayName": "Z0Z_ Extensions for Visual Studio Code",
-    "description": "Add files to .git/info/exclude from context menu - a cleaner alternative to .gitignore for personal ignores",
-    "version": "0.0.1",
+    "description": "code harder",
+    "version": "0.0.2",
     "publisher": "hunterhogan",
     "author": {
         "name": "Hunter Hogan",
@@ -32,16 +32,24 @@
     "homepage": "https://github.com/hunterhogan/Z0Z_VScode",
     "main": "./extension.js",
     "contributes": {
-        "commands": [{
-            "command": "git-exclude.addToExclude",
-            "title": "Add to .git/info/exclude"
-        }],
+        "commands": [
+            {
+                "command": "Z0Z_-extensions-for-visual-studio-code.addToExclude",
+                "title": "Add to .git/info/exclude"
+            },
+            {
+                "command": "Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
+                "title": "Toggle Problems Visibility"
+            }
+        ],
         "menus": {
-            "scm/resourceState/context": [{
-                "command": "git-exclude.addToExclude",
-                "when": "scmProvider == git",
-                "group": "1_modification@4"
-            }]
+            "scm/resourceState/context": [
+                {
+                    "command": "Z0Z_-extensions-for-visual-studio-code.addToExclude",
+                    "when": "scmProvider == git",
+                    "group": "1_modification@4"
+                }
+            ]
         }
     }
 }
