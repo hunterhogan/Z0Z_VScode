@@ -1,7 +1,7 @@
 [
     {
         "key": "ctrl+shift+m",
-        "command": "Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
+        "command": "z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
         "when": "editorTextFocus"
     },
     {

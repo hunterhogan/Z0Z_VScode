@@ -1,5 +1,5 @@
 {
-    "name": "Z0Z_-extensions-for-visual-studio-code",
+    "name": "z0z_-extensions-for-visual-studio-code",
     "displayName": "Z0Z_ Extensions for Visual Studio Code",
     "description": "code harder",
     "version": "0.0.2",
@@ -34,22 +34,40 @@
     "contributes": {
         "commands": [
             {
-                "command": "Z0Z_-extensions-for-visual-studio-code.addToExclude",
+                "command": "z0z_-extensions-for-visual-studio-code.addToExclude",
                 "title": "Add to .git/info/exclude"
             },
             {
-                "command": "Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
+                "command": "z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
                 "title": "Toggle Problems Visibility"
             }
         ],
         "menus": {
             "scm/resourceState/context": [
                 {
-                    "command": "Z0Z_-extensions-for-visual-studio-code.addToExclude",
+                    "command": "z0z_-extensions-for-visual-studio-code.addToExclude",
                     "when": "scmProvider == git",
                     "group": "1_modification@4"
                 }
             ]
         }
+    },
+    "scripts": {
+        "test": "node ./test/runTest.js",
+        "vscode:prepublish": "npm run lint",
+        "lint": "eslint .",
+        "package": "vsce package",
+        "publish": "vsce publish"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "20.2.5",
+        "@types/vscode": "^1.75.0",
+        "@vscode/test-electron": "^2.3.8",
+        "@vscode/vsce": "^2.19.0",
+        "eslint": "^8.56.0",
+        "glob": "^8.1.0",
+        "mocha": "^10.2.0"
     }
 }

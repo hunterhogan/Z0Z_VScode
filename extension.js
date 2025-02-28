@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 function activate(context) {
-    let disposable = vscode.commands.registerCommand('Z0Z_-extensions-for-visual-studio-code.addToExclude', async (uri) => {
+    let disposable = vscode.commands.registerCommand('z0z_-extensions-for-visual-studio-code.addToExclude', async (uri) => {
         if (!uri?.resourceUri) {
             return;
         }
@@ -28,10 +28,15 @@ function activate(context) {
         }
     });
 
-    let toggleProblemsVisibility = vscode.commands.registerCommand('Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility', async () => {
+    let toggleProblemsVisibility = vscode.commands.registerCommand('z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility', async () => {
         const config = vscode.workspace.getConfiguration('problems');
         const currentVisibility = config.get('visibility');
         await config.update('visibility', !currentVisibility, true);
+        
+        // Show notification to user
+        vscode.window.showInformationMessage(
+            `Problems panel visibility ${!currentVisibility ? 'enabled' : 'disabled'}`
+        );
     });
 
     let hoverProvider = vscode.languages.registerHoverProvider('*', {
@@ -41,12 +46,12 @@ function activate(context) {
 
             if (diagnostic) {
                 const toggleCommand = {
-                    command: 'Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility',
+                    command: 'z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility',
                     title: 'Toggle Problems Visibility'
                 };
                 return new vscode.Hover([
                     diagnostic.message,
-                    new vscode.MarkdownString(`[Toggle Problems Visibility](command:Z0Z_-extensions-for-visual-studio-code.toggleProblemsVisibility)`)
+                    new vscode.MarkdownString(`[Toggle Problems Visibility](command:z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility)`)
                 ]);
             }
         }
