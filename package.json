@@ -2,7 +2,7 @@
     "name": "z0z_-extensions-for-visual-studio-code",
     "displayName": "Z0Z_ Extensions for Visual Studio Code",
     "description": "code harder",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "hunterhogan",
     "author": {
         "name": "Hunter Hogan",
@@ -40,6 +40,10 @@
             {
                 "command": "z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
                 "title": "Toggle Problems Visibility"
+            },
+            {
+                "command": "z0z_-extensions-for-visual-studio-code.addPyrightIgnore",
+                "title": "Add '# pyright: ignore[<diagnostic rule>]' to suppress diagnostic"
             }
         ],
         "menus": {
@@ -48,6 +52,13 @@
                     "command": "z0z_-extensions-for-visual-studio-code.addToExclude",
                     "when": "scmProvider == git",
                     "group": "1_modification@4"
+                }
+            ],
+            "problem/context": [
+                {
+                    "command": "z0z_-extensions-for-visual-studio-code.addPyrightIgnore",
+                    "when": "(problemItem.source == 'Pylance' || problemItem.source == 'pyright') && (ms-pyright.pyright || ms-python.vscode-pylance)",
+                    "group": "1_modification"
                 }
             ]
         }
