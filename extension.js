@@ -89,7 +89,7 @@ function activate(context) {
         
         // Apply the edit
         await vscode.workspace.applyEdit(edit);
-        vscode.window.showInformationMessage(`Added pyright ignore for "${diagnosticRule}"`);
+        // vscode.window.showInformationMessage(`Added pyright ignore for "${diagnosticRule}"`);
     });
 
     let hoverProvider = vscode.languages.registerHoverProvider('*', {

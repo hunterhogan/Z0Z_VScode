@@ -57,7 +57,7 @@
             "problem/context": [
                 {
                     "command": "z0z_-extensions-for-visual-studio-code.addPyrightIgnore",
-                    "when": "(problemItem.source == 'Pylance' || problemItem.source == 'pyright') && (ms-pyright.pyright || ms-python.vscode-pylance)",
+                    "when": "problemItem.source == 'Pylance'",
                     "group": "1_modification"
                 }
             ]
