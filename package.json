@@ -30,8 +30,7 @@
         "url": "https://github.com/hunterhogan/Z0Z_VScode/issues"
     },
     "homepage": "https://github.com/hunterhogan/Z0Z_VScode",
-    "main": "./extension.js",
-    "contributes": {
+    "main": "./extension.js",    "contributes": {
         "commands": [
             {
                 "command": "z0z_-extensions-for-visual-studio-code.addToExclude",
@@ -40,10 +39,6 @@
             {
                 "command": "z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
                 "title": "Toggle Problems Visibility"
-            },
-            {
-                "command": "z0z_-extensions-for-visual-studio-code.addPyrightIgnore",
-                "title": "Add '# pyright: ignore[<diagnostic rule>]' to suppress diagnostic"
             }
         ],
         "menus": {
@@ -52,13 +47,6 @@
                     "command": "z0z_-extensions-for-visual-studio-code.addToExclude",
                     "when": "scmProvider == git",
                     "group": "1_modification@4"
-                }
-            ],
-            "problem/context": [
-                {
-                    "command": "z0z_-extensions-for-visual-studio-code.addPyrightIgnore",
-                    "when": "problemItem.source == 'Pylance'",
-                    "group": "1_modification"
                 }
             ]
         }
