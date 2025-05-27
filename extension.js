@@ -32,36 +32,12 @@ function activate(context) {
         const config = vscode.workspace.getConfiguration('problems');
         const currentVisibility = config.get('visibility');
         await config.update('visibility', !currentVisibility, true);
-        
-        // Show notification to user
-        vscode.window.showInformationMessage(
-            `Problems visibility ${!currentVisibility ? 'enabled' : 'disabled'}`
-        );
     });
 
 
-
-    let hoverProvider = vscode.languages.registerHoverProvider('*', {
-        provideHover(document, position, token) {
-            const diagnostic = vscode.languages.getDiagnostics(document.uri)
-                .find(d => d.range.contains(position));
-
-            if (diagnostic) {
-                const toggleCommand = {
-                    command: 'z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility',
-                    title: 'Toggle Problems Visibility'
-                };
-                return new vscode.Hover([
-                    diagnostic.message,
-                    new vscode.MarkdownString(`[Toggle Problems Visibility](command:z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility)`)
-                ]);
-            }
-        }
-    });
 
     context.subscriptions.push(disposable);
     context.subscriptions.push(toggleProblemsVisibility);
-    context.subscriptions.push(hoverProvider);
 }
 
 function deactivate() {}
