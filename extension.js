@@ -4,7 +4,7 @@ const path = require('path');
 
 function activate(context) {
     let disposable = vscode.commands.registerCommand('z0z_-extensions-for-visual-studio-code.addToExclude', async (uri) => {
-        if (!uri?.resourceUri) {
+        if (!uri || !uri.resourceUri) {
             return;
         }
 
