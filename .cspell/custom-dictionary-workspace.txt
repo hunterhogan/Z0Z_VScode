@@ -1,0 +1,4 @@
+# Custom Dictionary Words
+hunterhogan
+pylance
+pyright

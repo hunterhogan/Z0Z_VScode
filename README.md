@@ -26,6 +26,6 @@ Quickly toggle the visibility of the Problems panel with a keyboard shortcut.
 ## Ideas
 
 1. Automatic [grepWin](https://tools.stefankueng.com/grepWin.html) integration.
-2. Integrate the docs of https://ss64.com/ somehow.
+2. Integrate the docs of <https://ss64.com/> somehow.
 3. Securely [manage Jupyter kernels.](https://github.com/microsoft/vscode-jupyter/wiki/Loading-Kernels-from-insecure-directories)
 4. Manage [Jupyter widget sources.](https://github.com/microsoft/vscode-jupyter/wiki/IPyWidget-Support-in-VS-Code-Python)
