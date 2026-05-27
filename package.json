@@ -2,7 +2,7 @@
     "name": "z0z_-extensions-for-visual-studio-code",
     "displayName": "Z0Z_ Extensions for Visual Studio Code",
     "description": "code harder",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "hunterhogan",
     "author": {
         "name": "Hunter Hogan",
@@ -39,6 +39,10 @@
             {
                 "command": "z0z_-extensions-for-visual-studio-code.toggleProblemsVisibility",
                 "title": "Toggle Problems Visibility"
+            },
+            {
+                "command": "z0z_-extensions-for-visual-studio-code.reformatTrailingCommasToLeadingCommas",
+                "title": "Reformat trailing → leading commas"
             }
         ],
         "menus": {

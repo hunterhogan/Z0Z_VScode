@@ -7,5 +7,10 @@
     {
         "key": "ctrl+shift+m",
         "command": "-workbench.panel.markers.view.focus"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "z0z_-extensions-for-visual-studio-code.reformatTrailingCommasToLeadingCommas",
+        "when": "editorHasSelection"
     }
 ]
