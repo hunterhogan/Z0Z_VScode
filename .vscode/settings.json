@@ -1,5 +1,25 @@
 {
-    "cSpell.words": [
-        "hunterhogan"
-    ]
+        "cSpell.customDictionaries": {
+            "custom": true, // Enable the `custom` dictionary
+            "internal-terms": false, // Disable the `internal-terms` dictionary
+            "project-words": {
+                "addWords": true,
+                "description": "Words used in this workspace.",
+                "name": "project-words",
+                "path": "${workspaceFolder}/.vscode/code-spell-dictionary-workspace.txt"
+            },
+            "user-words": {
+                "addWords": true,
+                "description": "Words used by this user profile.",
+                "name": "user-words",
+                "path": "${env:APPDATA}/Code Spell Checker/code-spell-dictionary-user.txt"
+            }
+        },
+        "cSpell.enabledNotifications": {
+            "Average Word Length too Long": false,
+            "Lines too Long": false,
+            "Maximum Word Length Exceeded": false
+        },
+        "cSpell.maxNumberOfProblems": 1000,
+        "cSpell.numSuggestions": 4,
 }
