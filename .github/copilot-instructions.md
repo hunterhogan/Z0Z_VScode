@@ -1,7 +1,7 @@
 # Copilot Instructions for Z0Z_ VS Code Extension
 
 ## Project Overview
-This is a VS Code extension that provides utility commands for developers, specifically focused on Git workflow enhancements and UI productivity tools. The extension follows a minimal, single-file architecture with straightforward command registration patterns.
+This is a VS Code extension that provides utility commands for developers, specifically focused on Git workflow enhancements, UI productivity tools, and lexical formatting utilities. The extension follows a minimal, single-file architecture with straightforward command registration patterns.
 
 ## Architecture & Key Files
 
@@ -57,6 +57,13 @@ Commands are exposed through VS Code's context menu system:
     }]
 }
 ```
+
+### Lexical Formatting
+Commands that modify text formatting (e.g., `normalizeHashCommentMarkers`, `reformatTrailingCommasToLeadingCommas`) must:
+- Apply all replacements as a single editor edit so one Undo restores the document
+- Preserve selections, line endings, and unaltered text
+- Support operating on all non-empty selections, or fallback to the whole document when selections are empty
+- Be idempotent
 
 ### Configuration Approach
 This extension avoids complex configuration - it provides opinionated tools that work out of the box. The `keybindings.json` file shows intended keybindings but users must manually add them to their settings.

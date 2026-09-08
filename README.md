@@ -28,7 +28,7 @@ Quickly reformat a selected block of code or data from trailing commas to leadin
 **Usage:**
 
 - Select text and run "Reformat trailing → leading commas" from the Command Palette.
-- Intended keyboard shortcut in `keybindings.json` is `Ctrl+Shift+L`.
+- Intended keyboard shortcut in `keybindings.json` is `Ctrl+Shift+C`.
 
 [![CC-BY-NC-4.0](https://raw.githubusercontent.com/hunterhogan/Z0Z_VScode/refs/heads/main/.github/CC-BY-NC-4.0.png)](https://creativecommons.org/licenses/by-nc/4.0/)
 

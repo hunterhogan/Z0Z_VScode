@@ -44,6 +44,10 @@
             {
                 "command": "z0z_-extensions-for-visual-studio-code.reformatTrailingCommasToLeadingCommas",
                 "title": "Reformat trailing → leading commas"
+            },
+            {
+                "command": "z0z_-extensions-for-visual-studio-code.normalizeHashCommentMarkers",
+                "title": "Normalize Hash Comment Markers"
             }
         ],
         "menus": {

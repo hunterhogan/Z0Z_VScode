@@ -57,9 +57,53 @@ function activate(context) {
         });
     });
 
+    let normalizeHashCommentMarkers = vscode.commands.registerCommand('z0z_-extensions-for-visual-studio-code.normalizeHashCommentMarkers', async () => {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return;
+        }
+
+        const selections = editor.selections;
+        const validSelections = selections.filter(selection => !selection.isEmpty);
+        
+        await editor.edit(editBuilder => {
+            const document = editor.document;
+            let rangesToProcess = [];
+
+            if (validSelections.length === 0) {
+                // whole document fallback
+                for (let i = 0; i < document.lineCount; i++) {
+                    rangesToProcess.push(document.lineAt(i).range);
+                }
+            } else {
+                for (const selection of validSelections) {
+                    for (let i = selection.start.line; i <= selection.end.line; i++) {
+                        rangesToProcess.push(document.lineAt(i).range);
+                    }
+                }
+            }
+
+            const uniqueLines = new Set();
+            for (const range of rangesToProcess) {
+                if (!uniqueLines.has(range.start.line)) {
+                    uniqueLines.add(range.start.line);
+                    const lineText = document.lineAt(range.start.line).text;
+                    const match = /^([ \t]*)#([ \t]+)(=+|-{2,})/.exec(lineText);
+                    if (match) {
+                        const startChar = match[1].length + 1; // start of whitespace after #
+                        const endChar = startChar + match[2].length;
+                        const spaceRange = new vscode.Range(range.start.line, startChar, range.start.line, endChar);
+                        editBuilder.delete(spaceRange);
+                    }
+                }
+            }
+        });
+    });
+
     context.subscriptions.push(disposable);
     context.subscriptions.push(toggleProblemsVisibility);
     context.subscriptions.push(reformatLeadingCommas);
+    context.subscriptions.push(normalizeHashCommentMarkers);
 }
 
 function reformatTrailingCommasToLeadingCommas(text) {
