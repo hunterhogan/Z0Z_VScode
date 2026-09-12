@@ -30,6 +30,14 @@ Quickly reformat a selected block of code or data from trailing commas to leadin
 - Select text and run "Reformat trailing → leading commas" from the Command Palette.
 - Intended keyboard shortcut in `keybindings.json` is `Ctrl+Shift+C`.
 
+### Move Python Suppressions to File Level
+
+Select a suppression or a block of Python, then run **Move Python Suppressions to File Level** from the Command Palette. With no selection, it uses the cursor's line.
+
+Converts rule-specific `ruff: ignore[...]`, `noqa: ...`, `pyright: ignore[...]`, and `ty: ignore[...]` comments. It adds missing rules to the file header and removes the converted inline comments from the selected lines. Existing headers stay in place; new rules are grouped by syntax. One Undo restores the edit.
+
+`type: ignore`, blanket ignores, and other tools are left alone.
+
 [![CC-BY-NC-4.0](https://raw.githubusercontent.com/hunterhogan/Z0Z_VScode/refs/heads/main/.github/CC-BY-NC-4.0.png)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 ## Ideas

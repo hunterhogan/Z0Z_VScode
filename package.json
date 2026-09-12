@@ -48,6 +48,11 @@
             {
                 "command": "z0z_-extensions-for-visual-studio-code.normalizeHashCommentMarkers",
                 "title": "Normalize Hash Comment Markers"
+            },
+            {
+                "command": "z0z_-extensions-for-visual-studio-code.promoteDiagnosticSuppressions",
+                "title": "Move Python Suppressions to File Level",
+                "enablement": "editorLangId == python"
             }
         ],
         "menus": {
