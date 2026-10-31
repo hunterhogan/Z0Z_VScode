@@ -84,5 +84,8 @@
         "glob": "^8.1.0",
         "mocha": "^11.3.0"    },
     "overrides": {
-        "serialize-javascript": "^7.0.5"    }
+        "undici": "^6.29.1",
+        "qs": "^6.16.1",
+        "serialize-javascript": "^7.1.3"
+    }
 }
